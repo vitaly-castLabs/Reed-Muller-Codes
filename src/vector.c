@@ -70,6 +70,9 @@ vector *add_vectors(vector *v1, vector *v2) {
 
 int compare_vectors(vector *v1, vector *v2) {
 	int i;
+	if (v1->length != v2->length)
+		return -1;
+	
 	for (i = 0 ; i < v1->length; i++) {
 		if (v1->values[i] % DEGREE != v2->values[i] % DEGREE) {
 			return v1->values[i] - v2->values[i];
@@ -94,7 +97,7 @@ void print_vector(vector *v, FILE *outputstream) {
 		if (v->values[i] == -1) {
 			fprintf(outputstream, "*");
 		} else {
-			fprintf(outputstream, "%d",v->values[i] & 1);
+			fprintf(outputstream, "%d",v->values[i]);
 		}
 	}
     fprintf(outputstream, "\n");
