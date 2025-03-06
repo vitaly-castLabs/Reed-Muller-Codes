@@ -20,7 +20,7 @@ vector *to_int_vector(char *s, int length) {
 	vector *v = create_vector(length);
 
 	for (i = 0; i < length || s[i] != '\0'; i++) {
-		v->values[i] = (int)s[i] - 32;
+		v->values[i] = ((int)s[i] - 48) % DEGREE;
 	}
 
 	return v;
