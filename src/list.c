@@ -22,6 +22,8 @@ node *create_node(void *value) {
 	n->value = value;
 	n->previous = NULL;
 	n->next = NULL;
+
+	return n;
 }
 
 void destroy_node(node *n) {
