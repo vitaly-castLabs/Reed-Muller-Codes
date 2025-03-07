@@ -19,7 +19,7 @@ vector *to_int_vector(char *s, int length) {
 	int i;
 	vector *v = create_vector(length);
 
-	for (i = 0; i < length || s[i] != '\0'; i++) {
+	for (i = 0; i < length; i++) {
 		v->values[i] = ((int)s[i] - 48) % DEGREE;
 	}
 
@@ -28,7 +28,7 @@ vector *to_int_vector(char *s, int length) {
 
 int is_bin_string(char *s, int length) {
     int i;
-    for (i = 0; i < length || s[i] != '\0'; i++) {
+    for (i = 0; i < length; i++) {
         if (s[i] != '0' && s[i] != '1') {
             return 0;
         }
