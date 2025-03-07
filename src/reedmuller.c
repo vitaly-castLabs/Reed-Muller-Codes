@@ -55,18 +55,12 @@ vector *psi_monomial(int m, monomial *mn) {
 }
 
 vector *psi_x(int m, int pos) {
-	int i,j;
-	int num_ones = 1 << (m - pos - 1);
-	vector *v = create_vector(1 << m);
-	
-	for (i = 0; i < num_ones; i++) {
-		for (j = 0; i + j < v->length; j++) {
-			v->values[i + j] = 1;
-			j += num_ones + num_ones - 1;
-		}
-	}
-
-	return v;	
+    vector *v = create_vector(1 << m);
+    for (int i = 0; i < v->length; i++) {
+        // Check if the pos-th bit of i is set
+        v->values[i] = (i >> (m - pos - 1)) & 1;
+    }
+    return v;
 }
 
 list *generate_reduced_monomials(int r,int m) {
